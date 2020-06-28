@@ -1,0 +1,20 @@
+### Date: June 27, 2020
+
+## Interactive map of UCSF campuses:
+```{r}
+library(leaflet)
+
+locations <- data.frame(lat = c(37.763797, 37.755398, 37.782294, 37.762650),
+                        lng = c(-122.456871, -122.404405, -122.503422, -122.389166 ))
+
+labels <- c(
+        "<a href = 'https://psych.ucsf.edu/lpphc'>Langley Porter</a>",
+        "<a href = 'https://psych.ucsf.edu/zsfg'>ZSFGH</a>", 
+        "<a href = 'https://www.sanfrancisco.va.gov/services/mentalhealth.asp'>SFVA</a>", 
+        "<a href = 'https://psych.ucsf.edu/news/uc-regents-approve-plans-new-ucsf-psychiatry-building'>Mission Bay</a>")
+
+leaflet(locations) %>%
+        addTiles() %>%
+        addCircleMarkers(popup = labels)
+```
+
